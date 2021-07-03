@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Category;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\Session;
 // use Illuminate\Contracts\Session\Session as SessionSession;
@@ -34,7 +35,9 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('admin.posts.create');
+
+        $categories = Category::all();
+        return view('admin.posts.create', ["categories" => $categories]);
     }
 
     /**
@@ -120,8 +123,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $categories = Category::all();
         $data=[
-            'post' =>$post
+            'post' =>$post,
+            'categories' => $categories
         ];
         return view('admin.posts.edit', $data);
     }

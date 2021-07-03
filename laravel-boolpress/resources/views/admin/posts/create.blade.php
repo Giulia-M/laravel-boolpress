@@ -45,9 +45,9 @@
                         {{ old('content') }}
                     </textarea>
                     
-                    {{-- @error('content')
+                    @error('content')
                     <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror --}}
+                    @enderror
                 </div>
 
                 {{-- <div class="form-group">
@@ -74,7 +74,7 @@
                 </div> --}}
 
                 {{-- categoria del post --}}
-                {{-- <div class="form-group">
+                <div class="form-group">
                     <label>Categoria</label>
                     <select name="category_id"
                             class="form-control  @error('category_id') is-invalid @enderror" >
@@ -91,7 +91,7 @@
                     @error('category_id')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div> --}}
+                </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">

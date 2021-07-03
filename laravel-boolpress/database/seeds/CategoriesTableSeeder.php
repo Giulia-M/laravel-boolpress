@@ -15,10 +15,13 @@ class CategoriesTableSeeder extends Seeder
     {
         //
 
-        $categories = ['antipasti', 'primi'];
+        $categories = ['giallo', 'avventura', 'drammatico', 'poliziesco'];
 
         foreach($categories as $category) {
             $new_category_object = new Category();
+            $new_category_object->name = $category;
+            $new_category_object->slug = Str::slug($category);
+            $new_category_object->save();
             
         }
     }

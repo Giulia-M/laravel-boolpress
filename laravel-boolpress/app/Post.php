@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     
-    protected $fillable =["title", "content", "slug"];
+    protected $fillable =["title", "content", "slug", "category_id"];
 
     //user perchè relazione 1 a molti 
     public function user()
@@ -17,7 +17,7 @@ class Post extends Model
 
     public function category()
     {
-        # code...
+        
         return $this->belongsTo("App\Category");
     }
 

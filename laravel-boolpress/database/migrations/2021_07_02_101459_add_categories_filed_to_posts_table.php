@@ -20,8 +20,7 @@ class AddCategoriesFiledToPostsTable extends Migration
             $table->foreign("category_id")
                 ->references("id")
                 ->on("categories")
-                //se la categoria a cui quel post facev riferimento 
-                // post nn ha nessuna categoria 
+                //se la categoria viene cancellata mi deve svuotare quel campo
                 ->onDelete("set null");
         });
     }
@@ -34,9 +33,9 @@ class AddCategoriesFiledToPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            
             $table->dropForeign("posts_category_id_foreign");
-            $table->dropForeign("category_id");
+            $table->dropColumn("category_id");
         });
     }
 }
