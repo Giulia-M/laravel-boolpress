@@ -52,11 +52,12 @@ class PostController extends Controller
         $new_post= new Post();
         $new_post->fill($form_data);
 
-        /*
+        
         //per generare lo slug :url 
         $slug=Str::slug($new_post->title);
         $slug_base=$slug;
-
+        
+        /*
         //verifico che lo slug non esista gia nel database 
         $post_presente = Post::where('slug', $slug)->first();
         $contatore=1;
@@ -68,13 +69,16 @@ class PostController extends Controller
             $post_presente= Post::where('slug', $slug)->first();
         }
         //esco dal while, se lo slug nn lo trova nel db 
+       
+        */
         //assegno lo slug al post 
         $new_post->slug= $slug;
-        */
         $new_post->save();
         return redirect()->route('admin.posts.index');
 
     }
+
+   
 
     /**
      * Display the specified resource.
@@ -133,9 +137,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
+        // $post->delete();
+        // return redirect()->route('admin.posts.index');
+
+        $post = Post::findOrFail($id);
+
         $post->delete();
+
         return redirect()->route('admin.posts.index');
     }
 }

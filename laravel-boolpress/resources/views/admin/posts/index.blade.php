@@ -32,16 +32,22 @@
                                 {{-- <td>{{ $post->user->name }}</td> --}}
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.posts.show', ['post' => $post->id ]) }}">
-                            
+                                        Dettagli 
                                     </a>
                                     <a class="btn btn-warning btn-sm" href="{{ route('admin.posts.edit', ['post' => $post->id]) }}">
+                                        Modifica
                                     </a>
+
+
                                     <form class="d-inline-block" action="{{ route('admin.posts.destroy', ['post' => $post->id]) }}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm">
-                                        </button>
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Cancella">
+                                        
                                     </form>
+
+                                    
+
                                 </td>
                             </tr>
                         @endforeach
