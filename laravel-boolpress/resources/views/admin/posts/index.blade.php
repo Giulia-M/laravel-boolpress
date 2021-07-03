@@ -16,7 +16,7 @@
                         <th>ID</th>
                         <th>Titolo</th>
                         <th>Slug</th>
-                        <th>Categoria</th>
+                        {{-- <th>Categoria</th> --}}
                         <th>Utente</th>
                         <th class="text-center">Azioni</th>
                     </tr>
@@ -29,7 +29,8 @@
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->slug }}</td>
                                 {{-- <td>{{ $post->category ? $post->category->name : '-' }}</td> --}}
-                                {{-- <td>{{ $post->user->name }}</td> --}}
+                                <td>{{ $post->user->name }}</td>
+
                                 <td>
                                     <a class="btn btn-info btn-sm" href="{{ route('admin.posts.show', ['post' => $post->id ]) }}">
                                         Dettagli 

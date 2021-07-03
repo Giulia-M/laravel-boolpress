@@ -32,7 +32,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(){
-        return view('admin.posts.index');
+        return view('admin.posts.create');
     }
 
     /**
@@ -49,13 +49,14 @@ class PostController extends Controller
             "content" => "required",
         ]);
         $form_data = $request->all();
+
         $new_post= new Post();
         $new_post->fill($form_data);
 
         
         //per generare lo slug :url 
         $slug=Str::slug($new_post->title);
-        $slug_base=$slug;
+        // $slug_base=$slug;
         
         /*
         //verifico che lo slug non esista gia nel database 
