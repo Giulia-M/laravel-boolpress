@@ -102,6 +102,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $user = $post->user();
+        // funziona ugualmente:  $user = $post->user;
+
         return view('admin.posts.show', ['post' =>$post, "user" => $user]);
         // return view('posts.show', compact('post'));
         // return view('posts.show', [

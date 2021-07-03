@@ -19,7 +19,7 @@
 
       <p class="lead">{{ $post->content }}</p>
 
-      {{-- <p>Scritto da {{ $post->user->name }}</p> --}}
+      <p>Scritto da {{ $post->user->name }}</p>
     </div>
   </div>
 </div>
