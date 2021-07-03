@@ -8,7 +8,7 @@
         <p>Contenuto: {{ $post->content }}</p>
         <p>Slug:{{ $post->slug }}</p>
         <p>Id:{{ $post->id }}</p>
-        {{-- <p>{{ $post->category ? $post->category->name : '-' }}</p> --}}
+        <p>Category: {{ $post->category ? $post->category->name : '-' }}</p>
         <p>Utente: {{ $post->user->name }} ({{ $post->user->email }})</p>
     </div>
     <a href="{{ route('admin.posts.edit', $post->id) }}" class="badge badge-primary">modifica il tuo post</a><br>

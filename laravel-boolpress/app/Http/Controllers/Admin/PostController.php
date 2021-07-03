@@ -52,6 +52,7 @@ class PostController extends Controller
         $request->validate([
             "title"=>"required|max:255",
             "content" => "required",
+            'category_id' => 'nullable|exists:categories,id'
         ]);
 
         // dump($request->user());
@@ -143,6 +144,7 @@ class PostController extends Controller
         $request->validate([
             "title"=>"required|max:255",
             "content" => "required",
+            'category_id' => 'nullable|exists:categories,id'
         ]);
 
         $form_data=$request->all();

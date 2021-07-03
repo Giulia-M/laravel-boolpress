@@ -32,6 +32,8 @@ Route::prefix('admin')
     ->name("admin.")
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('index');
+        Route::get('/categories', 'CategoryController@index')->name('categories.index');
+
 
         //Genera tutte le rotte necessarie per la crud dei posts
         Route::resource("/posts", "PostController");

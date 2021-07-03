@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use App\Post;
+use App\Category;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -14,8 +16,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //
-        return view("admin.home");
+        $postsCount= [
+            "posts" => Post::count(),
+            "categories" => Category::count(),
+
+
+        ];
+        return view("admin.home", compact("postsCount"));
     }
 
     /**
