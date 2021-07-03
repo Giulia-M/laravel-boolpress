@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //
-    protected $fillable =["title", "content", "slug", "user_id", "updated_at", "created_at"];
+    
+    protected $fillable =["title", "content", "slug"];
 
+    //user perchè relazione 1 a molti 
     public function user()
     {
-        # code...
         return $this->belongsTo("App\User");
     }
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\Session;
+// use Illuminate\Contracts\Session\Session as SessionSession;
+// use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Http\Request;
@@ -48,10 +50,20 @@ class PostController extends Controller
             "title"=>"required|max:255",
             "content" => "required",
         ]);
+
+        // dump($request->user());
+
+        // return;
+
+
+
         $form_data = $request->all();
 
         $new_post= new Post();
         $new_post->fill($form_data);
+
+        //per sicurezza hacker 
+        $new_post->user_id = $request->user()->id;
 
         
         //per generare lo slug :url 
@@ -89,8 +101,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-
-        return view('admin.posts.show', ['post' =>$post]);
+        $user = $post->user();
+        return view('admin.posts.show', ['post' =>$post, "user" => $user]);
         // return view('posts.show', compact('post'));
         // return view('posts.show', [
         //     'post' => $post

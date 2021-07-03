@@ -9,7 +9,7 @@
         <p>{{ $post->slug }}</p>
         <p>{{ $post->id }}</p>
         {{-- <p>{{ $post->category ? $post->category->name : '-' }}</p> --}}
-        <p>{{ $post->user->name }}</p>
+        <p>{{ $post->user->name }} ({{ $post->user->email }})</p>
     </div>
     <a href="{{ route('admin.posts.edit', $post->id) }}" class="badge badge-primary">modifica il tuo post</a><br>
     <a href="{{ route('admin.posts.index') }}" class="badge badge-primary">ritorna alla home</a><br>

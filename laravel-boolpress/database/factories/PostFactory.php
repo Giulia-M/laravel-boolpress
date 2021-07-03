@@ -13,7 +13,7 @@ $factory->define(Post::class, function (Faker $faker) {
         'slug' => $faker->slug(),
         // 'user' => $faker->company(),
         // 'user_id' => $faker->random()->id,
-        'user_id' => App\Post::all()->random()->id,
+        // 'user_id' => App\Post::all()->random()->id,
         // 'user_id' => auth()->id(),
     ];
 });

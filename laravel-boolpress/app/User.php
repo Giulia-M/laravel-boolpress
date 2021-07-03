@@ -37,9 +37,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    //posts plurale perchè la relazione uno a molti -> un utente molti post
     public function posts() {
-        //se di default faccio collegamento post user id 
+      
         return $this->hasMany("App\Post");
     }
 }

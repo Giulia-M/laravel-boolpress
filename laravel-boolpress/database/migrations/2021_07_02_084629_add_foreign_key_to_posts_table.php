@@ -14,10 +14,11 @@ class AddForeignKeyToPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //creo colonna si chiama
+            //creo colonna "user_id" fa riferimento 
+            // alla tabella users 
             $table->unsignedBigInteger("user_id");
             
-            //colonna
+            //colonna che diventa foreign key 
             $table->foreign("user_id")
             //a quale colonna fa riferimento questo id per 
             //riuscire a fare il collegamento?
@@ -42,7 +43,7 @@ class AddForeignKeyToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //cancellare la relazione
-            $table->dropForeign("user_id");
+            $table->dropForeign("posts_user_id_foreign");
             //cancellare la colonna 
             $table->dropColumn("user_id");
 
