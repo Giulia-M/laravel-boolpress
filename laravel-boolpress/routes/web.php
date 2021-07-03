@@ -13,10 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+
+Route::get('/', "HomeController@index")->name("index");
+Route::get('/posts', "PostController@index")->name("posts.index");
+Route::get('/posts/{slug}', "PostController@show")->name("posts.show");
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->name("admin.")
+    ->group(function () {
+        Route::get('/', 'HomeController@index')->name('index');
+
+        //Genera tutte le rotte necessarie per la crud dei posts
+        Route::resource("/posts", "PostController");
+    });
