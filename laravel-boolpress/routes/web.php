@@ -33,8 +33,15 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('/', 'HomeController@index')->name('index');
         Route::get('/categories', 'CategoryController@index')->name('categories.index');
+        Route::get('/tags', 'TagController@index')->name('tags.index');
+
+        // Route::get('/posts/filter', 'PostController@index')->name('filter');
+
+
 
 
         //Genera tutte le rotte necessarie per la crud dei posts
         Route::resource("/posts", "PostController");
+        
+
     });
