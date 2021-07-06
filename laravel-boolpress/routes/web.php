@@ -34,6 +34,8 @@ Route::prefix('admin')
         Route::get('/', 'HomeController@index')->name('index');
         Route::get('/categories', 'CategoryController@index')->name('categories.index');
         Route::get('/tags', 'TagController@index')->name('tags.index');
+        Route::get('/userdetails', 'UserDetailController@index')->name('userdetails.index');
+
 
         // Route::get('/posts/filter', 'PostController@index')->name('filter');
 

@@ -46,9 +46,9 @@ class PostController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     */
+    */
 
-     //creare un nuovo post 
+    //creare un nuovo post 
     public function store(Request $request){
         $request->validate([
             "title"=>"required|max:255",
@@ -103,7 +103,7 @@ class PostController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
+    */
     public function show(Post $post)
     {
         $user = $post->user();

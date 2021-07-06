@@ -11,16 +11,15 @@ class PostController extends Controller
     public function index() {
         //leggere i post esistenti
         //nn vado a chiedere i dati delle categorie 
-        // $posts = Post::all();
+        $posts = Post::all();
 
         //leggere i dati delle categorie, utilizzo
         //il with , fa il caricamento immediato 
-        $posts = Post::with("category")->with("tags")->get();
-
+        // $posts = Post::with("category")->with("tags")->get();
 
         //andiamo a convertire i dati in json
         return response()->json([
-            "success" =>true,
+            "success" => false,
             "results" => $posts
         ]);
 
