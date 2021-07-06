@@ -9,7 +9,7 @@ $factory->define(Post::class, function (Faker $faker) {
     return [
         'title' =>$faker->sentence($nbWords = 6, $variableNbWords = true),  // Random task title
         'content' => $faker->realText(500),
-        // 'user_id' => 1,
+        'user_id' => 1,
         'slug' => $faker->slug(),
         // 'user' => $faker->company(),
         // 'user_id' => $faker->random()->id,

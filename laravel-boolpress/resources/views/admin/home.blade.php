@@ -27,6 +27,14 @@
 
                         </ul>
                     </p>
+
+                    <ul>
+                        <li>
+                            Name: {{ Auth::user()->name }}
+                        </li>
+                        <li>  Email: {{  Auth::user()->email }}</li>
+                        <li> {{  Auth::user()->detail->address }} </li>
+                    </ul>
                 </div>
             </div>
         </div>

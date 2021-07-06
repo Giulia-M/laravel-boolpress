@@ -204,7 +204,9 @@ class PostController extends Controller
         // return redirect()->route('admin.posts.index');
 
         $post = Post::findOrFail($id);
-
+        //nel momento in cui cancello un post da 'dettagli post'
+        $post->tags()->detach();
+        
         $post->delete();
 
         return redirect()->route('admin.posts.index');

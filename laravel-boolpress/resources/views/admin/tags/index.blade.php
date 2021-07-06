@@ -15,7 +15,7 @@
                         <th>ID</th>
                         <th>Nome</th>
                         <th>Slug</th>
-                        <th>Count Post</th>
+                        {{-- <th>Count Post</th> --}}
                     </tr>
                     </thead>
 

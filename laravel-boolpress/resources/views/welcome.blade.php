@@ -19,7 +19,9 @@
 
 
 <div class="text-center">
-  <a class="display-4"  href="{{ route("posts.index") }}">Vai ai post publici</a>
+  <a class="display-4"  href="{{ route("posts.index") }}">Vai ai post publici
+  
+  </a>
   {{-- <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
                     <a href="https://blog.laravel.com">Blog</a>
