@@ -35,6 +35,8 @@ Route::prefix('admin')
         Route::get('/categories', 'CategoryController@index')->name('categories.index');
         Route::get('/tags', 'TagController@index')->name('tags.index');
         Route::get('/userdetails', 'UserDetailController@index')->name('userdetails.index');
+        Route::get('/userdetails/create', 'UserDetailController@create')->name('userdetails.create');
+
 
 
         // Route::get('/posts/filter', 'PostController@index')->name('filter');
@@ -44,6 +46,8 @@ Route::prefix('admin')
 
         //Genera tutte le rotte necessarie per la crud dei posts
         Route::resource("/posts", "PostController");
+        Route::resource("/userdetails", "UserDetailController");
+
         
 
     });

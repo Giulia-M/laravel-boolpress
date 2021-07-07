@@ -16,7 +16,7 @@ class UserDetailController extends Controller
     public function index()
     {
         $users = UserDetail::all();
-        return view ('userdetails.index', compact('users'));
+        return view ('admin.userdetails.index', compact('users'));
         
     }
 
@@ -27,7 +27,11 @@ class UserDetailController extends Controller
      */
     public function create()
     {
-        //
+    
+        $users = UserDetail::all();
+
+        return view('admin.userdetails.create', compact('users'));
+        
     }
 
     /**
@@ -38,7 +42,24 @@ class UserDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            "name"=>"nullable",
+            "address" => "nullable",
+            'city' => 'nullable',
+            'birth_place' => 'nullable',
+            'birthCountry' => 'nullable',
+
+        ]);
+
+        $form_data = $request->all();
+
+        $new_userdetail= new UserDetail();
+       
+
+        $new_userdetail->fill($form_data);
+        $new_userdetail->save();
+        return redirect()->route('admin.userdetails.index');
     }
 
     /**
@@ -50,6 +71,7 @@ class UserDetailController extends Controller
     public function show($id)
     {
         //
+        
     }
 
     /**

@@ -50,28 +50,7 @@
                     @enderror
                 </div>
 
-                {{-- <div class="form-group">
-
-                    <label>created at</label>
-                    <input type="date" name="created_at" class="form-control @error('title') is-invalid @enderror" placeholder="" 
-                    value="{{ old('create_at') }}" required>
-
-                    
-                </div><div class="form-group">
-
-                    <label>slug</label>
-                    <input type="text" name="slug" class="form-control @error('title') is-invalid @enderror" placeholder="" 
-                    value="{{ old('slug') }}" required>
-
-                   
-                </div>
-                </div><div class="form-group">
-
-                    <label>updated_at</label>
-                    <input type="date" name="updated_at" class="form-control @error('title') is-invalid @enderror" placeholder="" 
-                    value="{{ old('updated_at') }}" required>
-
-                </div> --}}
+                
 
                 {{-- categoria del post --}}
                 <div class="form-group">

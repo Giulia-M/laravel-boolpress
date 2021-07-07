@@ -33,7 +33,7 @@
                             Name: {{ Auth::user()->name }}
                         </li>
                         <li>  Email: {{  Auth::user()->email }}</li>
-                        <li> Indirizzo: {{  Auth::user()->detail->address }} </li>
+            
                     </ul>
                 </div>
             </div>

@@ -15,6 +15,7 @@ class CreateUserDetailsTable extends Migration
     {
         Schema::create('user_details', function (Blueprint $table) {
             $table->id();
+            $table->string("name")->nullable();
 
             $table->string("address")->nullable();
             $table->string("city")->nullable();
@@ -27,7 +28,6 @@ class CreateUserDetailsTable extends Migration
             $table->foreign("user_id")
             ->references("id")
             ->on("users");
-
 
             $table->timestamps();
         });

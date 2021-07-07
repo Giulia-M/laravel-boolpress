@@ -12,10 +12,10 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' =>$titolo,  // Random task title
         'content' => $faker->realText(500),
         'user_id' => 1,
-        'slug' => Str::slug($titolo)
+        'slug' => Str::slug($titolo),
         // 'user' => $faker->company(),
         // 'user_id' => $faker->random()->id,
         // 'user_id' => App\Post::all()->random()->id,
-        // 'user_id' => auth()->id(),
+        // 'user_id' => auth()->id()
     ];
 });
