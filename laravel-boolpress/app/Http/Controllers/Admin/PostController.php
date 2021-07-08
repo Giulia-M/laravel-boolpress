@@ -7,12 +7,14 @@ use App\Post;
 use App\Category;
 use Illuminate\Support\Str;
 use App\Http\Controllers\Admin\Session;
+use App\Mail\NewPostEmail;
 use App\Tag;
 // use Illuminate\Contracts\Session\Session as SessionSession;
 // use Illuminate\Support\Facades\Auth;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
@@ -60,9 +62,6 @@ class PostController extends Controller
         // dump($request->user());
 
         // return;
-
-
-
         $form_data = $request->all();
 
         $new_post= new Post();
@@ -92,7 +91,19 @@ class PostController extends Controller
         
         //assegno lo slug al post 
         $new_post->slug= $slug;
+
+
+        if(key_exists("postCover", $form_data)) {
+            
+            $storageResult = Storage::put("imgCover", $form_data["postCover"]);
+            $new_post->cover_url = $storageResult;
+        }
+
         $new_post->save();
+
+
+        Mail::to("admin@gmail.com")->send(new NewPostEmail($new_post));
+
         return redirect()->route('admin.posts.index');
 
     }
