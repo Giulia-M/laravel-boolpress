@@ -28,7 +28,7 @@
                 <div class="form-group">
 
                     <label>Nome</label>
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                    <input type="text" name="name" class="form-control @error('title') is-invalid @enderror"
                     placeholder="Inserisci il titolo" 
                     value="{{ old('nome') }}" required>
 
@@ -41,7 +41,7 @@
 
                     <label>Città</label>
                     
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                    <input type="text" name="city" class="form-control @error('title') is-invalid @enderror"
                     placeholder="Inserisci il titolo" 
                     value="{{ old('city') }}" required>
                     @error('citta')
@@ -53,7 +53,7 @@
 
                     <label>Indirizzo</label>
                     
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                    <input type="text" name="address" class="form-control @error('title') is-invalid @enderror"
                     placeholder="Inserisci l'indirizzo" 
                     value="{{ old('indirizzo') }}" required>
                     @error('indirizzo')
@@ -65,7 +65,7 @@
 
                     <label>Luogo di Nascita</label>
                     
-                    <input type="text" name="title" class="form-control @error('title') is-invalid @enderror"
+                    <input type="text" name="birthCountry" class="form-control @error('title') is-invalid @enderror"
                     placeholder="Inserisci il titolo" 
                     value="{{ old('birth_place') }}" required>
                     @error('birth_place')
@@ -77,7 +77,7 @@
 
                     <label>Data di Nascita</label>
                     
-                    <input type="date" name="title" class="form-control @error('title') is-invalid @enderror"
+                    <input type="date" name="birthDate" class="form-control @error('title') is-invalid @enderror"
                     placeholder="Inserisci la data" 
                     value="{{ old('birth_date') }}" required>
                     @error('birth_date')

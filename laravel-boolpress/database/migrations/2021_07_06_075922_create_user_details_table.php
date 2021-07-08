@@ -19,12 +19,12 @@ class CreateUserDetailsTable extends Migration
 
             $table->string("address")->nullable();
             $table->string("city")->nullable();
-            $table->string("province")->nullable();
-            $table->integer("zip")->nullable();
+            // $table->string("province")->nullable();
+            // $table->integer("zip")->nullable();
             $table->string("birthDate")->nullable();
             $table->string("birthCountry")->nullable();
             
-            $table->unsignedBigInteger("user_id");
+            $table->unsignedBigInteger("user_id")->unique();
             $table->foreign("user_id")
             ->references("id")
             ->on("users");

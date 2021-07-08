@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\UserDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserDetailController extends Controller
 {
@@ -28,9 +29,9 @@ class UserDetailController extends Controller
     public function create()
     {
     
-        $users = UserDetail::all();
+        // $users = UserDetail::all();
 
-        return view('admin.userdetails.create', compact('users'));
+        return view('admin.userdetails.create');
         
     }
 
@@ -55,9 +56,18 @@ class UserDetailController extends Controller
         $form_data = $request->all();
 
         $new_userdetail= new UserDetail();
-       
+        $new_userdetail->name = $form_data["name"];
+        $new_userdetail->address = $form_data["address"];
+        $new_userdetail->city = $form_data["city"]; 
+        $new_userdetail->user_id =Auth::user()->id; 
 
-        $new_userdetail->fill($form_data);
+        // $new_userdetail->password = $form_data["province"]; 
+        // $new_userdetail->password = $form_data["zip"]; 
+       
+        $new_userdetail->birthDate = $form_data["birthDate"]; 
+        $new_userdetail->birthCountry = $form_data["birthCountry"];         
+    
+        // $new_userdetail->fill($form_data);
         $new_userdetail->save();
         return redirect()->route('admin.userdetails.index');
     }
@@ -70,7 +80,8 @@ class UserDetailController extends Controller
      */
     public function show($id)
     {
-        //
+    
+
         
     }
 
