@@ -22,11 +22,24 @@
                 @endif
             </div>
 
-
+            @if($post->cover_url)
+                        
+                <div>
+                    <img src="{{ asset('storage/'. $post->cover_url)  }}" class="img-fluid">
+                </div>
+            @endif
 
             <form action="{{ route('admin.posts.update', ['post' => $post->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
+
+
+                <div class="form-group">
+                    <label>Immagine di copertina</label>
+                    {{-- name="postCover" è il nome del file che gli assegniamo --}}
+                    <input type="file" name="postCover"  class="form-control-file">
+                </div>
+                
 
                 <div class="form-group">
                     <label>Titolo</label>

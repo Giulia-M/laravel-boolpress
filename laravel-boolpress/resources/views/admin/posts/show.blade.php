@@ -4,6 +4,9 @@
 {{-- @dump($post) --}}
 <div class="container">
     <div class="text-center border border-primary rounded-left">
+
+        
+
         <h2>TITLE: {{ $post->title }}</h2>
         {{-- Tags --}}
                
@@ -21,6 +24,13 @@
         <p>Id:{{ $post->id }}</p>
         <p>Category: {{ $post->category ? $post->category->name : '-' }}</p>
         <p>Utente: {{ $post->user->name }} ({{ $post->user->email }})</p>
+
+        @if($post->cover_url)
+            
+            <div>
+                <img src="{{ asset('storage/'. $post->cover_url)  }}" class="img-fluid">
+            </div>
+        @endif
     </div>
     <a href="{{ route('admin.posts.edit', $post->id) }}" class="badge badge-primary">modifica il tuo post</a><br>
     <a href="{{ route('admin.posts.index') }}" class="badge badge-primary">ritorna alla home</a><br>

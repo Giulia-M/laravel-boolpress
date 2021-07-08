@@ -13,6 +13,7 @@ use App\Tag;
 
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -187,6 +188,19 @@ class PostController extends Controller
         // $post->tags()->attach($form_data["tags"]);
 
         $post->tags()->sync($form_data["tags"]);
+
+        if(key_exists("postCover", $form_data)) {
+
+            //se esiste gia una cover
+            if($post->cover_url){
+                //cancellare l'imm esistente se voglio modificarla 
+                Storage::delete($post->cover_url);
+            }
+            
+            $storageResult = Storage::put("imgCover", $form_data["postCover"]);
+            $form_data["cover_url"] = $storageResult;
+        }
+       
 
         $post->update($form_data);
         return redirect()->route('admin.posts.index');
