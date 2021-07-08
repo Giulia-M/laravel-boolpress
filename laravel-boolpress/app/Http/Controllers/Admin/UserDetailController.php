@@ -30,8 +30,12 @@ class UserDetailController extends Controller
     {
     
         // $users = UserDetail::all();
+        $userId =Auth::user()->id;
+        $userDetail = UserDetail::where("user_id", $userId)->first();
+        if($userDetail) {
 
-        return view('admin.userdetails.create');
+            return redirect()->route('admin.userdetails.edit', $userDetail->id);
+        }
         
     }
 
