@@ -40,8 +40,10 @@ class PostController extends Controller
      */
     public function create(){
 
+        $tags = Tag::all();
+
         $categories = Category::all();
-        return view('admin.posts.create', ["categories" => $categories]);
+        return view('admin.posts.create', ["categories" => $categories, "tags" => $tags]);
     }
 
     /**

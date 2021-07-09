@@ -22,7 +22,7 @@
                 @endif
             </div>
 
-            <form action="{{ route('admin.posts.store') }}" method="post" >
+            <form action="{{ route('admin.posts.store') }}" method="post" enctype="multipart/form-data" >
                 @csrf
 
                 <div class="form-group">
@@ -78,23 +78,22 @@
                     @enderror
                 </div>
 
-                {{-- <div class="form-group">
-                
+               <div class="form-group">
                     <label>Tags</label><br>
 
-                    @foreach($post->tags as $tag)
+                    @foreach($tags as $tag)
 
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label">
-                        <input name="tags[]" class="form-check-input" type="checkbox" value="{{ $tag->id }}">
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                            <input name="tags[]" class="form-check-input" type="checkbox" value="{{ $tag->id }}">
 
-                        {{ $tag->name }}
-                        </label>
-                    </div>
+                            {{ $tag->name }}
+                            </label>
+                        </div>
 
                     @endforeach
 
-                </div> --}}
+                </div>
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">
